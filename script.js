@@ -2,10 +2,22 @@ var timeInterval = 60;
 var countdownTimer = "countdown";
 var startQuizButton = $('#start-button');
 
+// Question and options 
 // let questions = "";
+var questions = {
+    question: "What do for loop do?",
+    options: [""],
+    correctAnswer: "A"
+}
 
-// 15 Objective questions 
-var objectibeQuestions 
+// Randomize 15 objective questions in for loop
+let objectibeQuestions = "";
+function randomizeQuestions () {
+    for (let i= 0; randomizeQuestions.length = 0; i++) {
+        var questions 
+    }
+
+}
 
 // Start quiz button display on browser
 function startQuiz () {
