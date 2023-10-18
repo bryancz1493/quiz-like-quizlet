@@ -141,8 +141,9 @@ function randomizeObjectiveQuestions () {
 // Start quiz button display on browser
 function startQuiz () {
     for (let i = initialTime; initialTime.length === 0; i--) {
-        
+    
     }
+    return initialTime;
 }
 
 clickToStartButton.on('start', clickToStart);
@@ -150,11 +151,14 @@ clickToStartButton.on('start', clickToStart);
 // Add score (+1) if correct; Minus time (-5s) if wrong
 function rightOrWrongAns () {
     if (answerGiven != optionSelected) {
-        initialTime = timeInterval(initialTime) -5;
+        initialTime -= 5;
     }  else {
         initialScore ++;
     }
 }
+
+// When quiz is done
+
 
 // Timer on top right corner
 function updateTimer () {
