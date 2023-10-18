@@ -128,22 +128,18 @@ let questions = [
 }
 ]
 
-// Randomize 15 objective questions in for loop
+// Randomize 15 objective questions in for loop to display for users
 let objectibeQuestions = "";
 function randomizeObjectiveQuestions () {
     for (let i= 0; randomizeQuestions.length = 0; i++) {
         var randomizeQuestions = Math.floor(Math.random() * randomizeQuestions.length);
-
     }
 
 }
 
 // Start quiz button display on browser
 function startQuiz () {
-    for (let i = initialTime; initialTime.length === 0; i--) {
-    
-    }
-    return initialTime;
+    document.getElementById("time")
 }
 
 clickToStartButton.on('start', clickToStart);
@@ -159,7 +155,7 @@ function rightOrWrongAns () {
 
 // Timer on top right corner
 function updateTimer () {
-    document.getElementById('time') = timeInterval;
+    document.getElementById("time") = timeInterval;
 
     if (timeInterval <=0) {
         clearInterval(countdownTimer);
@@ -171,7 +167,7 @@ function updateTimer () {
 // When quiz ended, alert will be displayed "Time's UP! Game Over!"
 function endGame () {
     alert("Time's UP! Game Over!");
-    document.getElementById('initialScore').style.display = 'block';
+    document.getElementById("initialScore").style.display = 'block';
     return null;
 }
 
@@ -179,7 +175,7 @@ function endGame () {
 
 // Local storage for high scores record
 function saveScore () {
-    var initials = document.getElementById('initialsInput').value;
+    var initialScore = document.getElementById('initialsInput').value;
     var savedScores = JSON.parse(localStorage.getItem('scores'));
     savedScores.push({initialScore, score});
     localStorage.setItem('scores', JSON.stringify(savedScores));
