@@ -171,7 +171,19 @@ function updateTimer () {
 // When quiz ended, alert will be displayed "Time's UP! Game Over!"
 function endGame () {
     alert("Time's UP! Game Over!");
-    document.getElementById('initials').style.display = 'block';
+    document.getElementById('initialScore').style.display = 'block';
+    return null;
+}
+
+// View high score on top left corner (need to store record in local storage)
+
+// Local storage for high scores record
+function saveScore () {
+    var initials = document.getElementById('initialsInput').value;
+    var savedScores = JSON.parse(localStorage.getItem('scores'));
+    savedScores.push({initialScore, score});
+    localStorage.setItem('scores', JSON.stringify(savedScores));
+    alert('High Score is saved!');
     return null;
 }
 
@@ -181,12 +193,6 @@ function submitButton(event) {
     // Pull this from HTML (make sure to include id for this)
     var submitButton = $('#submit-button');
 }
-
-// View high score on top left corner (need to store record in local storage)
-
-
-// Local storage for high scores record
-
 
 // Submit name for high score record button 
 submitButton.on('submit', saveToSubmit);
