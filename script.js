@@ -157,20 +157,22 @@ function rightOrWrongAns () {
     }
 }
 
-// When quiz is done
-
-
 // Timer on top right corner
 function updateTimer () {
     document.getElementById('time') = timeInterval;
 
     if (timeInterval <=0) {
         clearInterval(countdownTimer);
-        alert ("Time Up! Game Over!");
-        return null;
+        endGame();
     }
-
     timeInterval --;
+}
+
+// When quiz ended, alert will be displayed "Time's UP! Game Over!"
+function endGame () {
+    alert("Time's UP! Game Over!");
+    document.getElementById('initials').style.display = 'block';
+    return null;
 }
 
 // Submit button for high score record
