@@ -1,5 +1,6 @@
 var initialScore = 0;
 var initialTime = 0;
+var currentQuestion = 0;
 var objectibeQuestions = 15;
 var timeInterval = 60;
 var countdownTimer = "countdown";
@@ -137,9 +138,15 @@ function randomizeObjectiveQuestions () {
 
 }
 
-// Start quiz button display on browser
+// Start quiz and 'Start' button display on browser
 function startQuiz () {
-    document.getElementById("time")
+    document.getElementById("initialTime").style.display = 'none';
+    timeInterval = 60;
+    currentQuestion = 0;
+    initialScore = 0; 
+    updateTimer();
+    countdownTimer = setInterval(updateTimer, 1000);
+    randomizeObjectiveQuestions(currentQuestion);
 }
 
 clickToStartButton.on('start', clickToStart);
@@ -155,7 +162,7 @@ function rightOrWrongAns () {
 
 // Timer on top right corner
 function updateTimer () {
-    document.getElementById("time") = timeInterval;
+    document.getElementById("time").innerText = timeInterval;
 
     if (timeInterval <=0) {
         clearInterval(countdownTimer);
