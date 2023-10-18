@@ -135,12 +135,12 @@ function randomizeObjectiveQuestions () {
     for (let i= 0; randomizeQuestions.length = 0; i++) {
         var randomizeQuestions = Math.floor(Math.random() * randomizeQuestions.length);
     }
-
+    
 }
 
 // Start quiz and 'Start' button display on browser
 function startQuiz () {
-    document.getElementById("initialTime").style.display = 'none';
+    document.getElementById("time").style.display = 'none';
     timeInterval = 60;
     currentQuestion = 0;
     initialScore = 0; 
@@ -174,7 +174,7 @@ function updateTimer () {
 // When quiz ended, alert will be displayed "Time's UP! Game Over!"
 function endGame () {
     alert("Time's UP! Game Over!");
-    document.getElementById("initialScore").style.display = 'block';
+    document.getElementById("initials").style.display = 'block';
     return null;
 }
 
