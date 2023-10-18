@@ -1,5 +1,5 @@
 var initialScore = 0;
-var initialScore = 0;
+var initialTime = 0;
 var objectibeQuestions = 15;
 var timeInterval = 60;
 var countdownTimer = "countdown";
@@ -7,7 +7,7 @@ var startQuizButton = $('#start-button');
 
 // Question and options 
 // let questions = "";
-var questions = [
+let questions = [
 {
     question1: "How does a for loop start?",
     option1: "for(i=0; i <5)",
