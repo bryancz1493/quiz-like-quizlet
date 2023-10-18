@@ -11,12 +11,21 @@
 <body>
     <h1>60s JavaScript Quiz</h1>
 
-    <p>Time Left: <span id="time">60</span> seconds</p>
-    <p>High Score: </p> <placeholder>Name:</placeholder>
+    <p>Time Left: <span id = "time">60</span> seconds</p>
+    <p>High Score:</p>
 
-    <button id="start-btn" class="btn btn-start">Start Quiz</button>
+    <button onclick = "startQuiz()">Start Quiz</button>
 
-    <ul>Questions:</ul>
+    <div id = "quizArea">
+        <p id = "question"></p>
+        <div id = "options"></div>
+    </div>
+    
+    <div id = "initials" style = "display: none">
+        <label id = "initialsInput">Enter your initials!</label>
+        <input type = "text" id = "initialsInput">
+        <button onclick = "saveScore()">Submit High Score</button>
+    </div>
 
 </body>
 </html>
