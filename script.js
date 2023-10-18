@@ -1,5 +1,4 @@
 var initialScore = 0;
-var initialTime = 0;
 var currentQuestion = 0;
 var objectibeQuestions = 15;
 var timeInterval = 60;
@@ -130,8 +129,9 @@ let questions = [
 ]
 
 // Randomize 15 objective questions in for loop to display for users
-let objectibeQuestions = "";
+let objectiveQuestions = "";
 function randomizeObjectiveQuestions () {
+    document.getElementById("questions").innerText = questions;
     for (let i= 0; randomizeQuestions.length = 0; i++) {
         var randomizeQuestions = Math.floor(Math.random() * randomizeQuestions.length);
     }
@@ -140,7 +140,7 @@ function randomizeObjectiveQuestions () {
 
 // Start quiz and 'Start' button display on browser
 function startQuiz () {
-    document.getElementById("time").style.display = 'none';
+    document.getElementById("time").style.display = 'countdown';
     timeInterval = 60;
     currentQuestion = 0;
     initialScore = 0; 
@@ -154,7 +154,7 @@ clickToStartButton.on('start', clickToStart);
 // Add score (+1) if correct; Minus time (-5s) if wrong
 function rightOrWrongAns () {
     if (answerGiven != optionSelected) {
-        initialTime -= 5;
+        timeInterval -= 5;
     }  else {
         initialScore ++;
     }
@@ -187,7 +187,7 @@ function saveScore () {
     savedScores.push({initialScore, score});
     localStorage.setItem('scores', JSON.stringify(savedScores));
     alert('High Score is saved!');
-    return null;
+    // return null;
 }
 
 // Submit button for high score record
