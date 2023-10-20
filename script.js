@@ -35,7 +35,7 @@ let questions = [
 },
 {
     question: "In JavaScript the following loop for(x=1; x<11; x++) will execute how many times?",
-    option1s: ["8", "9", "10", "11"],
+    options: ["8", "9", "10", "11"],
     correctAnswer: "10"
 },
 {
@@ -43,68 +43,46 @@ let questions = [
     options: ["head tag", "title tag", "body tag", "comment tag"],
     correctAnswer: "body tag"
 },
-// {
-//     question: "In JavaScript, the symbols (+, -, *, /) are:",
-//     options: ["operators",],
-//     option2: "expressions",
-//     option3: "comparison operators",
-//     option4: "None of the answers above",
-//     correctAnswer: 1,
-// },
-// {
-//     question: "In JavaScript, the expression x!=y returns false if",
-//     option1: "the variables are equal",
-//     option2: "x is less than y",
-//     option3: "the varaibles are not equal",
-//     option4: "None of the answers above",
-//     correctAnswer: 3,
-// },
-// {
-//     question: "In JavaScript, which of the following is a logical operator?",
-//     option1: "|",
-//     option2: "&&",
-//     option3: "%",
-//     option4: "/",
-//     correctAnswer: 2,
-// },
-// {
-//     question: "A named element in a JavaScript program that is used to store and retrieve data is:",
-//     option1: "Method",
-//     option2: "Assignment operator",
-//     option3: "Variable",
-//     option4: "String",
-//     correctAnswer: 3,
-// },
-// {
-//     question: "Do we need to insert script tag in HMTL in order to use jQuery?",
-//     option1: "Yes, we need to reference the file in HMTL.",
-//     option2: "No, we can just use it with dollar sign.",
-//     correctAnswer: 1,
-// },
-// {
-//     question: "Whcih HTML tag is used to define CSS file?",
-//     option1: "<script>",
-//     option2: "<style>",
-//     option3: "<link>",
-//     option4: "<stylesheet>",
-//     correctAnswer: 2,
-// },
-// {
-//     question: "In HTML, you may use button on a form to:",
-//     option1: "Run a program",
-//     option2: "Submit a form to a server",
-//     option3: "Reset a form to its original state",
-//     option4: "All the answers above",
-//     correctAnswer: 4,
-// },
-// {
-//     question: "Which is the correct CSS syntax?",
-//     option1: "body{color:black}",
-//     option2: "{body;color:black}",
-//     option3: "body:color=black",
-//     option4: "{body:color=black(body)}",
-//     correctAnswer: 1,
-// }
+{
+    question: "In JavaScript, the symbols (+, -, *, /) are:",
+    options: ["operators", "expressions", "comparison operators", "None of the answers above"],
+    correctAnswer: "expressions"
+},
+{
+    question: "In JavaScript, the expression x!=y returns false if",
+    options: ["the variables are equal", "x is less than y", "the varaibles are not equal", "None of the answers above"],
+    correctAnswer: "the varaibles are not equal"
+},
+{
+    question: "In JavaScript, which of the following is a logical operator?",
+    options: ["|", "&&", "%", "/"],
+    correctAnswer: "&&"
+},
+{
+    question: "A named element in a JavaScript program that is used to store and retrieve data is:",
+    options: ["Method", "Assignment operator", "Variable", "String"],
+    correctAnswer: "Variable"
+},
+{
+    question: "Do we need to insert script tag in HMTL in order to use jQuery?",
+    options: ["Yes, we need to reference the file in HMTL.", "No, we can just use it with dollar sign."],
+    correctAnswer: "Yes, we need to reference the file in HMTL."
+},
+{
+    question: "Whcih HTML tag is used to define CSS file?",
+    options: ["<script>", "<style>", "<link>", "<stylesheet>"],
+    correctAnswer: "<link>"
+},
+{
+    question: "In HTML, you may use button on a form to:",
+    options: ["Run a program", "Submit a form to a server", "Reset a form to its original state", "All the answers above"],
+    correctAnswer: "All the answers above"
+},
+{
+    question: "Which is the correct CSS syntax?",
+    options: ["body{color:black}", "{body;color:black}", "body:color=black", "{body:color=black(body)}"],
+    correctAnswer: "body{color:black}"
+}
 ]
 
 // Randomize 15 objective questions in for loop to display for users
@@ -129,7 +107,7 @@ function startQuiz () {
 
 // clickToStartButton.on('start', clickToStart);
 
-// Options
+// Show options for every questions
 function objectiveOptions () {
     document.getElementById("options").innerHTML = "";
     var options = questions[currentQuestion].options
@@ -149,18 +127,20 @@ function displayObj () {
 
 // Add score (+1) if correct; Minus time (-5s) if wrong
 function rightOrWrongAns () {
-    if (answerGiven != optionSelected) {
+    var optionSelected = correctAnswer;
+    if (correctAnswer != optionSelected) {
         timeInterval -= 5;
     }  else {
         initialScore ++;
     }
+    return timeInterval;
 }
 
 // Timer on top right corner
 function updateTimer () {
     document.getElementById("time").innerText = timeInterval;
 
-    if (timeInterval <=0) {
+    if (timeInterval ===0) {
         clearInterval(countdownTimer);
         endGame();
     }
@@ -190,8 +170,7 @@ function saveScore () {
 function submitButton(event) {
     event.preventdefault();
     // Pull this from HTML (make sure to include id for this)
-    var submitButton = $('#submit-button');
 }
 
 // Submit name for high score record button 
-submitButton.on('submit', saveToSubmit);
+// submitButton.on('submit', saveToSubmit);
