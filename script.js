@@ -3,6 +3,7 @@ var currentQuestion = 0;
 var objectibeQuestions = 15;
 var timeInterval = 60;
 var countdownTimer = "countdown";
+var correctAnswer = ["for(i=0; i<=5; i++)", "//This is a comment", "Math.round(7.25)", "Math.max(2,4)", "Documentation (mdn, Codeacademy)", "10", "body tag", "expressions", "the varaibles are not equal", "&&", "Variable", "Yes, we need to reference the file in HMTL.", "<link>", "All the answers above", "body{color:black}"]
 // var startQuizButton = $('#start-button');
 
 // Question and options 
