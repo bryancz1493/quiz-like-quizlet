@@ -140,7 +140,7 @@ function rightOrWrongAns () {
 function updateTimer () {
     document.getElementById("time").innerText = timeInterval;
 
-    if (timeInterval ===0) {
+    if (timeInterval ===0 ) {
         clearInterval(countdownTimer);
         endGame();
     }
@@ -151,19 +151,26 @@ function updateTimer () {
 function endGame () {
     alert("Time's UP! Game Over!");
     document.getElementById("initials").style.display = 'block';
-    return null;
+    // var recordScore = ;
+    // endGame(returnScore);
+
 }
 
 // View high score on top left corner (need to store record in local storage)
 
 // Local storage for high scores record
-function saveScore () {
+function saveScore (rightOrWrongAns) {
     var initialScore = document.createElement('initialsInput').value;
     var savedScores = JSON.parse(localStorage.getItem('scores'));
     // savedScores.push({initialScore, score});
     localStorage.setItem('scores', JSON.stringify(savedScores));
     // alert('High Score is saved!');
     // return null;
+}
+
+// Display leaderboard
+function highScoreLeaderboard(saveScore) {
+    
 }
 
 // Submit button for high score record
@@ -173,8 +180,8 @@ function submitButton(event) {
 }
 
 function saveToSubmit() {
-    var startButton = document.createElement("button");
-        startButton.onclick = saveToSubmit;
+    var saveButton = document.createElement("button");
+        saveButton.onclick = submitButton(saveButton);
         (saveToSubmit);
 }
 
