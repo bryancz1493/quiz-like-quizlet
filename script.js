@@ -158,11 +158,11 @@ function endGame () {
 
 // Local storage for high scores record
 function saveScore () {
-    var initialScore = document.getElementById('initialsInput').value;
+    var initialScore = document.createElement('initialsInput').value;
     var savedScores = JSON.parse(localStorage.getItem('scores'));
-    savedScores.push({initialScore, score});
+    // savedScores.push({initialScore, score});
     localStorage.setItem('scores', JSON.stringify(savedScores));
-    alert('High Score is saved!');
+    // alert('High Score is saved!');
     // return null;
 }
 
@@ -174,7 +174,7 @@ function submitButton(event) {
 
 function saveToSubmit() {
     var startButton = document.createElement("button");
-        optionButton.onclick = saveToSubmit;
+        startButton.onclick = saveToSubmit;
         (saveToSubmit);
 }
 
