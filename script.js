@@ -172,5 +172,11 @@ function submitButton(event) {
     // Pull this from HTML (make sure to include id for this)
 }
 
+function saveToSubmit() {
+    var startButton = document.createElement("button");
+        optionButton.onclick = saveToSubmit;
+        (saveToSubmit);
+}
+
 // Submit name for high score record button 
 // submitButton.on('submit', saveToSubmit);
