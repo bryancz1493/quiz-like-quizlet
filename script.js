@@ -124,6 +124,10 @@ function objectiveOptions () {
 function displayObj () {
     currentQuestion++;
     randomizeObjectiveQuestions(currentQuestion);
+    if (currentQuestion === 0) {
+        clearInterval(countdownTimer);
+        endGame();
+    }
 }
 
 // Add score (+1) if correct; Minus time (-5s) if wrong
@@ -134,16 +138,16 @@ function rightOrWrongAns () {
     }  else {
         initialScore ++;
     }
-    return timeInterval;
+    return initialScore;
 }
 
 // Timer on top right corner
 function updateTimer () {
     document.getElementById("time").innerText = timeInterval;
 
-    if (timeInterval ===0 ) {
+    if (timeInterval === 0 ) {
         clearInterval(countdownTimer);
-        endGame();
+        endGame(saveScore);
     }
     timeInterval --;
 }
@@ -164,15 +168,16 @@ function saveScore (rightOrWrongAns) {
     var initialScore = document.createElement('initialsInput').value;
     var savedScores = JSON.parse(localStorage.getItem('scores'));
     // savedScores.push({initialScore, score});
-    localStorage.setItem('scores', JSON.stringify(savedScores));
+    localStorage.setItem('score', JSON.stringify(savedScores));
+    console.log(savedScores);
     // alert('High Score is saved!');
     // return null;
 }
 
 // Display leaderboard
-function highScoreLeaderboard(saveScore) {
-    
-}
+// function highScoreLeaderboard(saveScores) {
+    // var displayHighScore = document.getElementById('score')
+// }
 
 // Submit button for high score record
 function submitButton(event) {

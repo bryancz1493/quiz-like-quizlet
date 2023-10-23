@@ -12,19 +12,19 @@
     <h1>60s JavaScript Quiz</h1>
 
     <p>Time Left: <span id = "time">60</span> seconds</p>
-    <p>High Score:</p>
+    <p>High Score: <span id ="score"></span> </p>
 
-    <button onclick = "startQuiz()">Start Quiz</button>
+    <button onclick = "startQuiz ()">Start Quiz</button>
 
     <div id = "quizArea">
-        <p id = "question"></p>
+        <p id = "questions"></p>
         <div id = "options"></div>
     </div>
     
     <div id = "initials" style = "display: none">
-        <label id = "initialsInput">Enter your initials!</label>
-        <input type = "text" id = "initialsInput">
-        <button onclick = "saveScore()">Submit High Score</button>
+        <label id = "initialsInput">High Score: </label>
+        <input type = "text" id = "initialsInput" placeholder= "Enter you name!">
+        <button onclick = "saveScore ()">Submit High Score</button>
     </div>
 
 </body>
